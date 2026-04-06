@@ -1,20 +1,19 @@
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class TrainApp {
     public static void main(String[] args) {
-        System.out.println("--- UC3: Unique Bogie ID Tracking (HashSet) ---");
+        System.out.println("--- UC5: Preserving Attachment Order (LinkedHashSet) ---");
 
-        Set<String> bogieIds = new HashSet<>();
+        Set<String> formation = new LinkedHashSet<>();
 
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
+        formation.add("Locomotive-L1");
+        formation.add("Passenger-S1");
+        formation.add("Passenger-S2");
+        formation.add("Goods-G1");
+        formation.add("Guard-Coach");
 
-        System.out.println("Adding duplicate BG101...");
-        boolean isAdded = bogieIds.add("BG101"); 
-
-        System.out.println("Was duplicate added? " + isAdded);
-        System.out.println("Unique Bogie IDs in System: " + bogieIds);
+        System.out.println("Final Train Formation Order:");
+        formation.forEach(bogie -> System.out.println("Attached: " + bogie));
     }
 }
